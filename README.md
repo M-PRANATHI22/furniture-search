@@ -3,6 +3,19 @@
 A semantic search API for e-commerce products. It understands what a shopper
 means, not just the exact words they type.
 
+### Architecture
+
+```mermaid
+flowchart LR
+    A[product.csv] --> B[clean.py<br/>clean and build search text]
+    B --> C[embed.py<br/>sentence-transformer vectors]
+    C --> D[(product_embeddings.npy)]
+    E[User query] --> F[main.py<br/>FastAPI /search]
+    F --> G[search.py<br/>encode query, cosine similarity]
+    D --> G
+    G --> H[Top-k ranked products as JSON]
+```
+
 ## What it does
 - Cleans and combines product text (name, class, category, description, features)
 - Turns 42,994 products into vectors with a sentence-transformer model
