@@ -19,7 +19,7 @@ def search(query, top_k=5):
     results = products.iloc[top_ids][
         ["product_id", "product_name", "product_class"]
     ].copy()
-    results["score"] = scores[top_ids].round(3)
+    results["score"] = scores[top_ids].astype(float).round(3)
     return results
 
 

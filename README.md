@@ -20,6 +20,7 @@ flowchart LR
 - Cleans and combines product text (name, class, category, description, features)
 - Turns 42,994 products into vectors with a sentence-transformer model
 - Returns the products closest in meaning to a query, through a FastAPI endpoint
+![Search demo](images/project-image.png)
 
 ## Tech stack
 Python, pandas, sentence-transformers (all-MiniLM-L6-v2), NumPy, FastAPI, pytest
